@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <div className="flex items-center justify-center">
       <div className="left-4 fixed text-4xl items-center flex">
-        <Home fontSize="inherit" />
+        <Home fontSize="inherit" onClick={() => navigate("/")} />
       </div>
       <div className="flex gap-1">
         <LocalizationProvider dateAdapter={AdapterLuxon} adapterLocale="hr">
