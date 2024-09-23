@@ -1,11 +1,11 @@
 import Navbar from "../components/Navbar";
-import Home from "./Home";
+import { Outlet } from "react-router-dom";
 
 export default function Layout() {
   return (
-    <div className="m-5">
+    <div className="m-5 flex-col flex gap-6">
       <Navbar />
-      <Home />
+      <Outlet />
     </div>
   );
 }
