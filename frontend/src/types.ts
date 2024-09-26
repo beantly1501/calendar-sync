@@ -1,3 +1,5 @@
+import moment from "moment/moment";
+
 export type UserType = {
   id: number;
   role: number;
@@ -10,9 +12,9 @@ export type UserType = {
 export type EventType = {
   id: number;
   name: string;
-  description: string;
-  datetime_from: Date;
-  datetime_to: Date;
+  description?: string;
+  datetime_from: moment.Moment;
+  datetime_to: moment.Moment;
 };
 
 export enum Roles {

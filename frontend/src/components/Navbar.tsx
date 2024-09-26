@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
-import { AdapterLuxon } from "@mui/x-date-pickers/AdapterLuxon";
 import { AccountBox, Clear, Home } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
+import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
+import moment from "moment/moment";
 
 export default function Navbar() {
-  const [search, setSearch] = useState<Date | null>();
+  const [search, setSearch] = useState<moment.Moment | null>();
 
   const navigate = useNavigate();
 
@@ -15,7 +16,7 @@ export default function Navbar() {
         <Home fontSize="inherit" onClick={() => navigate("/")} />
       </div>
       <div className="flex gap-1">
-        <LocalizationProvider dateAdapter={AdapterLuxon} adapterLocale="hr">
+        <LocalizationProvider dateAdapter={AdapterMoment}>
           <DatePicker
             slotProps={{ textField: { size: "small" } }}
             value={search}

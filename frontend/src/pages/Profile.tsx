@@ -1,39 +1,15 @@
 import { useParams } from "react-router-dom";
-import { Roles, UserType } from "../types";
-
-const MOCK_DATA: UserType[] = [
-  {
-    id: 1,
-    name: "Jan",
-    username: "janko",
-    role: Roles.ADMIN,
-    email: "jbockal1501@gmail.com",
-    password: "jantest",
-  },
-  {
-    id: 2,
-    name: "Nensi",
-    username: "dugmiciforum",
-    role: Roles.USER,
-    email: "nensi@gmail.com",
-    password: "nensitest",
-  },
-  {
-    id: 3,
-    name: "Zvonko",
-    username: "zvonkoraj",
-    role: Roles.USER,
-    email: "zvonko@gmail.com",
-    password: "zvonkotest",
-  },
-];
+import { UserType } from "../types";
+import { MOCK_CALENDAR_DATA, MOCK_USER_DATA } from "../mock_data";
+import "moment-timezone";
+import Calendar from "../components/Calendar";
 
 export default function Profile() {
   const { userId } = useParams();
 
   return (
     <div>
-      {MOCK_DATA.map((user: UserType) => {
+      {MOCK_USER_DATA.map((user: UserType) => {
         if (userId === user.id.toString()) {
           return (
             <div className={"flex flex-col gap-2"}>
@@ -49,7 +25,7 @@ export default function Profile() {
         }
         return null;
       })}
-      <p>calendar</p>
+      <Calendar values={MOCK_CALENDAR_DATA} />
     </div>
   );
 }
